@@ -1,0 +1,24 @@
+.wrapper{
+    text-align: center;
+    h1{
+        margin: 0;
+    }
+    .tmp{
+        margin: 0 auto;
+        width: 26em;
+        input{
+            display: block;
+            padding: 1em 2em;
+            width: 30em;
+            margin: 1em;
+            border-radius: 2%;
+        }
+    }
+    
+    button{
+        padding: 1em;
+        width: 20em;
+        margin: 1em;
+        cursor: pointer;
+    }
+}

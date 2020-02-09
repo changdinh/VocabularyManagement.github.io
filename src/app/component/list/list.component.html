@@ -1,0 +1,18 @@
+<table>
+    <tr>
+        <th>ID</th>
+        <th>EN Vocabulary</th>
+        <th>VN Vocabulary</th>
+        <th>Memorized</th>
+        <th>Action</th>
+    </tr>
+    <tr *ngFor='let i of vocabularies'>
+        <td>{{i.id}}</td>
+        <td>{{i.en}}</td>
+        <td>{{i.vn}}</td>
+        <td>{{i.memorized}}</td>
+        <td>
+            <button (click)='deleteVocabulary(i.id)'>Remove</button>
+        </td>
+    </tr>
+</table>
