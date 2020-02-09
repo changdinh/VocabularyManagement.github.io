@@ -1,8 +1,18 @@
-<div class="wrapper">
-    <h1>Enter new vocabulary</h1>
-    <div class="tmp">
-        <input type="text" placeholder="English Vocabulary" [(ngModel)] = "newEN">
-        <input type="text" placeholder="Vietnamese Vocabulary" [(ngModel)] = "newVN">
-    </div>
-    <button (click)='addNew()'>Add Vocabulary</button>
-</div>
+<form [formGroup]="formcheck" (ngSubmit)="addNew()">
+    <div class="en">
+        <input placeholder="EN Vocabulary" type="text" formControlName="en" [(ngModel)]="newEN">
+
+        <div *ngIf="!EN().errors ? false : EN().errors.required" class="err">EN is required!</div>
+        <div *ngIf="!EN().errors ? false : EN().errors.minlength" class="err">Min length = 2 </div>
+        <div *ngIf="!EN().errors ? false : EN().errors.pattern" class="err">The field only contains letters or spaces</div>
+      </div><!---END EN-->
+
+      <div class="vn">
+        <input type="text" placeholder="VN Vocabulary" formControlName="vn" [(ngModel)]="newVN">
+
+        <div *ngIf="!VN().errors ? false : VN().errors.required" class="err">VN1 is required!</div>
+        <div *ngIf="!VN().errors ? false : VN().errors.minlength" class="err">VN Min length = 2 </div>
+        <div *ngIf="!VN().errors ? false : VN().errors.pattern" class="err">The field only contains letters or spaces</div>
+      </div><!----END VN-->
+      <button type="submit">Add</button>
+</form>
