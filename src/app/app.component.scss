@@ -1,5 +1,40 @@
 h1{
-    text-align: center;
-    font-size: 3em;
+    font-size: 2em;
     margin: 0;
+    color: #369;
+    text-align: center;
+}
+
+nav {
+    margin: 0 auto;
+    width: 40%;
+    display: flex;
+    a {
+        padding: 5px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 10px 5px 40px 5px;
+        background-color: #eee;
+        border-radius: 4px;
+        &:visited{
+            color: #334953;
+        }
+        &:link{
+            color: #334953;
+        }
+        &:hover{
+            color: #039be5;
+            background-color: #cfd8dc;
+        }
+        &.item{
+            width: 15%;
+        }
+        &.add{
+            flex-grow: 1;
+        }
+        &.list{
+            flex-grow: 1;
+        }
+    }
 }

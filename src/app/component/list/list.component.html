@@ -1,18 +1,35 @@
-<table>
-    <tr>
-        <th>ID</th>
-        <th>EN Vocabulary</th>
-        <th>VN Vocabulary</th>
-        <th>Memorized</th>
-        <th>Action</th>
-    </tr>
-    <tr *ngFor='let i of vocabularies'>
-        <td>{{i.id}}</td>
-        <td>{{i.en}}</td>
-        <td>{{i.vn}}</td>
-        <td>{{i.memorized}}</td>
-        <td>
-            <button (click)='deleteVocabulary(i.id)'>Remove</button>
-        </td>
-    </tr>
-</table>
+<div class="wrapper">
+    <select [(ngModel)] = "FilterStt">
+        <option value="all">See it all</option>
+        <option value="remembered">Remembered</option>
+        <option value="not_remember">Not remember</option>
+    </select>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>EN Vocabulary</th>
+            <th>VN Vocabulary</th>
+            <th>Memorized</th>
+            <th>Action</th>
+        </tr>
+        <tr *ngFor='let i of vocabularies'>
+            <ng-container *ngIf="filter(i.memorized)">
+                <td>
+                    <span [ngStyle]="{'color':i.memorized === true ? 'black' : 'red'}">{{i.id}}</span>
+                </td>
+                <td>
+                    <span [ngStyle]="{'color':i.memorized === true ? 'black' : 'red'}">{{i.en}}</span>
+                </td>
+                <td>
+                    <span [ngStyle]="{'color':i.memorized === true ? 'black' : 'red'}">{{i.vn}}</span>
+                </td>
+                <td>
+                    <span [ngStyle]="{'color':i.memorized === true ? 'black' : 'red'}">{{i.memorized}}</span>
+                </td>
+                <td>
+                    <button (click)='deleteVocabulary(i.id)' [ngStyle]="{'color':i.memorized === true ? 'black' : 'red'}">Remove</button>
+                </td>
+            </ng-container>
+        </tr>
+    </table>
+</div>

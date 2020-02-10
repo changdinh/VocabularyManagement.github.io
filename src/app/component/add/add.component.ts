@@ -10,9 +10,12 @@ import { Vocabulary } from 'src/models/Vocabulary';
 })
 export class AddComponent implements OnInit {
   formcheck;
-  newID = this.vocabularyService.vocabularies[(this.vocabularyService.vocabularies.length) - 1].id + 1;
   newEN = '';
   newVN = '';
+  showForm = false;
+
+  newID = this.vocabularyService.vocabularies[(this.vocabularyService.vocabularies.length) - 1].id + 1;
+
 
   constructor(private vocabularyService: VocabularyService) { }
 
@@ -31,11 +34,12 @@ export class AddComponent implements OnInit {
     });
   }
 
-  EN() {return this.formcheck.get('en'); }
+  EN() {
+    return this.formcheck.get('en');
+  }
   VN() {return this.formcheck.get('vn'); }
 
   addNew() {
-    // console.log(this.formcheck.get('en').errors);
     const Obj: Vocabulary = {
       id: this.newID,
       en: this.newEN,
@@ -47,6 +51,7 @@ export class AddComponent implements OnInit {
       this.vocabularyService.add(Obj);
       this.EN().setValue('');
       this.VN().setValue('');
+      this.showForm = false;
     }
   }
 }

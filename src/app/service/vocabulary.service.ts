@@ -5,6 +5,7 @@ import { Vocabulary } from 'src/models/Vocabulary';
   providedIn: 'root'
 })
 export class VocabularyService {
+
   vocabularies: Vocabulary[] = [
     {
       id: 1,

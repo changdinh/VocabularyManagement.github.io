@@ -1,19 +1,29 @@
-table{
-    border: 1px solid;
-    border-collapse: collapse;
-    margin: 0 auto;
-    tr{
-        th{
-            border: 1px solid;
-            padding: 1.5em;
-        }
-        td{
-            border: 1px solid;
-            padding: 1em;
-            text-align: center;
-            button{
-                padding: 0.5em 1.5em;
-                cursor: pointer;
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    select{
+        width: 10em;
+        margin-bottom: 0.5em;
+        padding: 0.5em;
+    }
+    table{
+        border: 1px solid;
+        border-collapse: collapse;
+        margin: 0 auto;
+        tr{
+            th{
+                border: 1px solid;
+                padding: 1.5em;
+            }
+            td{
+                border: 1px solid;
+                padding: 1em;
+                text-align: center;
+                button{
+                    padding: 0.5em 1.5em;
+                    cursor: pointer;
+                }
             }
         }
     }
