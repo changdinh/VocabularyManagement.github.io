@@ -24,7 +24,7 @@
                     <span [ngStyle]="{'color':i.memorized === true ? 'black' : 'red'}">{{i.vn}}</span>
                 </td>
                 <td>
-                    <span [ngStyle]="{'color':i.memorized === true ? 'black' : 'red'}">{{i.memorized}}</span>
+                    <input type="checkbox" [(ngModel)]="i.memorized">
                 </td>
                 <td>
                     <button (click)='deleteVocabulary(i.id)' [ngStyle]="{'color':i.memorized === true ? 'black' : 'red'}">Remove</button>

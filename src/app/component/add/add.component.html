@@ -2,17 +2,21 @@
   <form [formGroup]="formcheck" (ngSubmit)="addNew()">
     <ng-container *ngIf="showForm">
       <div class="en">
-        <input placeholder="EN Vocabulary" type="text" formControlName="en" [(ngModel)]="newEN">
+        <input placeholder="EN Vocabulary" type="text" formControlName="en" [(ngModel)]="newEN" (ngModelChange)="function_changeEN()">
     
-        <div *ngIf="!EN().errors ? false : EN().errors.required" class="err">EN is required!</div>
+        <div *ngIf="!EN().errors ? false : EN().errors.required" class="err">
+          <p *ngIf="showErrEN"> EN is required!</p>
+        </div>
         <div *ngIf="!EN().errors ? false : EN().errors.minlength" class="err">Min length = 2 </div>
         <div *ngIf="!EN().errors ? false : EN().errors.pattern" class="err">The field only contains letters or spaces</div>
       </div><!---END EN-->
     
       <div class="vn">
-        <input type="text" placeholder="VN Vocabulary" formControlName="vn" [(ngModel)]="newVN">
+        <input type="text" placeholder="VN Vocabulary" formControlName="vn" [(ngModel)]="newVN" (ngModelChange) = "function_changeVN()">
     
-        <div *ngIf="!VN().errors ? false : VN().errors.required" class="err">VN is required!</div>
+        <div *ngIf="!VN().errors ? false : VN().errors.required" class="err">
+          <p *ngIf="showErrVN">VN is required!</p>
+        </div>
         <div *ngIf="!VN().errors ? false : VN().errors.minlength" class="err">VN Min length = 2 </div>
         <div *ngIf="!VN().errors ? false : VN().errors.pattern" class="err">The field only contains letters or spaces</div>
       </div><!----END VN-->

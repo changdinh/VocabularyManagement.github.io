@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { VocabularyService } from 'src/app/service/vocabulary.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Vocabulary } from 'src/models/Vocabulary';
@@ -13,13 +13,18 @@ export class AddComponent implements OnInit {
   newEN = '';
   newVN = '';
   showForm = false;
+  showErrEN: boolean;
+  showErrVN: boolean;
+  countEN = 0;
+  countVN = 0;
 
   newID = this.vocabularyService.vocabularies[(this.vocabularyService.vocabularies.length) - 1].id + 1;
-
 
   constructor(private vocabularyService: VocabularyService) { }
 
   ngOnInit() {
+    this.showErrEN = false;
+    this.showErrVN = false;
     this.formcheck = new FormGroup({
       'en': new FormControl('', [
         Validators.required,
@@ -37,7 +42,7 @@ export class AddComponent implements OnInit {
   EN() {
     return this.formcheck.get('en');
   }
-  VN() {return this.formcheck.get('vn'); }
+  VN() { return this.formcheck.get('vn'); }
 
   addNew() {
     const Obj: Vocabulary = {
@@ -52,6 +57,20 @@ export class AddComponent implements OnInit {
       this.EN().setValue('');
       this.VN().setValue('');
       this.showForm = false;
+    }
+  }
+
+  function_changeEN() {
+    this.countEN++;
+    if (this.newEN === '' && this.countEN > 1) {
+      this.showErrEN = true;
+    }
+  }
+
+  function_changeVN() {
+    this.countVN++;
+    if (this.newVN === '' && this.countVN > 1) {
+      this.showErrVN = true;
     }
   }
 }
