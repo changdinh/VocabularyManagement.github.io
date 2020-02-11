@@ -8,13 +8,15 @@ import { AddComponent } from './component/add/add.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './component/home/home.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FilterListPipe } from './filter-list.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
     AddComponent,
-    HomeComponent
+    HomeComponent,
+    FilterListPipe
   ],
   imports: [
     BrowserModule,
