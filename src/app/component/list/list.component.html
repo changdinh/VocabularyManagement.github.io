@@ -1,9 +1,13 @@
 <div class="wrapper">
-    <select [(ngModel)] = "FilterStt">
-        <option value="all">See it all</option>
-        <option value="remembered">Remembered</option>
-        <option value="not_remember">Not remember</option>
-    </select>
+    <div class="action">
+        <select [(ngModel)] = "FilterStt">
+            <option value="all">See it all</option>
+            <option value="remembered">Remembered</option>
+            <option value="not_remember">Not remember</option>
+        </select>
+        <input type="search" placeholder="Start seaching for a vocabulary by everything" [(ngModel)]="searchText">
+    </div><!----END Action-->
+   
     <table>
         <tr>
             <th>ID</th>
@@ -12,7 +16,7 @@
             <th>Memorized</th>
             <th>Action</th>
         </tr>
-        <tr *ngFor='let i of vocabularies'>
+        <tr *ngFor='let i of vocabularies | filter: searchText'>
             <ng-container *ngIf="filter(i.memorized)">
                 <td>
                     <span [ngStyle]="{'color':i.memorized === true ? 'black' : 'red'}">{{i.id}}</span>

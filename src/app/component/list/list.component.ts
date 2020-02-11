@@ -9,6 +9,7 @@ import { VocabularyService } from 'src/app/service/vocabulary.service';
 })
 export class ListComponent implements OnInit {
   FilterStt = 'all';
+  searchText;
   vocabularies: Vocabulary[];
 
   constructor(private vocabularyService: VocabularyService) { }
