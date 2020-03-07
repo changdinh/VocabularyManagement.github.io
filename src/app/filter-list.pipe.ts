@@ -17,7 +17,8 @@ export class FilterListPipe implements PipeTransform {
       return it.en.toLowerCase().includes(searchText) || it.vn.toLowerCase().includes(searchText);
     });
     filterMetadata.count = filteredItems.length;
+    console.log("test");
     return filteredItems;
-      // test t push bằng cmd uhm
+
     }
 }
